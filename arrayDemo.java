@@ -1,20 +1,50 @@
+/**
+ * Definition: WAP to reverse an array in the same array without creating new array.
+ * 
+ * Author name: Hemang Kateshiya
+ * Creation Date: 07/05/2022 
+ * 
+ */
+
+/*
+ MODIFICATION HISTORY
+ 
+ Modified on 07 may 10:03 by Hemang Kateshiya [core logic]
+
+*/
+
+import java.util.*;
+
 class arrayDemo{
 	public static void main(String[] args) {
-		int a[]=new int[5],temp;
-		a[0]=1;
-		a[1]=2;
-		a[2]=3;
-		a[3]=4;
-		a[4]=5;
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter size of array:");
+		int n=s.nextInt();
 
-		System.out.println("Array is: ");
-		for(int i=0;i<5;i++){
-			System.out.println(a[i]);
+ 		int a[]=new int[n],temp,x,y;
+
+ 		System.out.println("Enter elements of an array:");
+ 		for(int i=0;i<a.length;i++){
+			a[i]=s.nextInt();
 		}
 
-		System.out.println("Array is: ");
-		for(int i=0;i<5;i++){
+		int t=n;
+		for(int i=0;i<a.length/2;i++,t--){
+			x=a[i];
+			y=a[t-1];
 
+			x=x+y;
+			y=x-y;
+			x=x-y;
+
+			a[i]=x;
+			a[t-1]=y;
+		}
+
+		System.out.println("Reversed array is: ");
+
+		for(int i=0;i<a.length;i++){
+			System.out.println(a[i]);
 		}
 	}
 }
